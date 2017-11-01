@@ -101,6 +101,12 @@ def transfer_metadata(stub_tree, orig_tree):
     for tag, value in metadata_dict.items():
         stub_metadata.set(tag, value)
 
+    # the tech value must be changed for the xml to validate in xmetal
+    stub_tech = stub_tree.getroot().find("metadata/tech").get("value")
+    orig_tree.getroot().find("metadata/tech").set("value", stub_tech)
+
+
+
 def transfer_metadata_old(stub_tree, original_tree, page_type):
     """get the metadata from the elementTree (ET) generated from the original xml file
     and append it into the stub xml ET"""
