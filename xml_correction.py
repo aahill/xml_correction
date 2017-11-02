@@ -102,8 +102,8 @@ def transfer_metadata(stub_tree, orig_tree):
         stub_metadata.set(tag, value)
 
     # the tech value must be changed for the xml to validate in xmetal
-    stub_tech = stub_tree.getroot().find("metadata/tech").get("value")
-    orig_tree.getroot().find("metadata/tech").set("value", stub_tech)
+    orig_tech = orig_tree.getroot().find("metadata/tech").get("value")
+    stub_tree.getroot().find("metadata/tech").set("value", orig_tech)
 
 
 
